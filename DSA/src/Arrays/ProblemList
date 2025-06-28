@@ -1,0 +1,62 @@
+Easy:
+Find the maximum element in an array. - Done
+Remove duplicates from a sorted array. - Using 2 pointer approach Done
+Rotate array by k steps. - Done
+Check if array is sorted and rotated. - Done
+Find the second largest element in an array. - Done
+Merge two sorted arrays.
+Find the intersection of two arrays.-Done
+Move zeroes to the end. - Done
+Find the missing number from an array of 1 to n.
+Find all pairs with a given sum. - Done
+
+
+Medium:
+Find the subarray with the given sum. - Done
+Kadane’s algorithm for the largest sum subarray. - Done
+Sort an array of 0s, 1s, and 2s (Dutch National Flag problem).-Done
+Longest consecutive sequence. - Try to use 2 pointer - Done
+Find all triplets with a sum equal to zero. - Done
+Find the smallest subarray with a sum greater than x. - Done
+Find the majority element in an array. - Done
+Binary search in a rotated sorted array.
+Count inversions in an array. - sorting algo problem
+Merge intervals. - Done with list and linkedlist
+
+
+Hard:
+Find the minimum in a rotated sorted array. - Done
+Longest increasing subsequence (LIS). - To be solved in DP
+Trapping Rain Water. - Done
+Median of two sorted arrays. - Done
+Product of array except self.
+Maximal rectangle in a binary matrix.
+Sliding window maximum.
+Find the first missing positive integer. -  Done
+Find all unique quadruplets that sum to a target.
+Largest rectangle in histogram.
+
+
+Sliding Window (Various Difficulty):
+
+Maximum sum of a subarray of size k.
+Smallest window that contains all characters of a given string.
+Minimum window substring.
+Longest substring with at most two distinct characters.
+Length of the longest substring without repeating characters.
+Find the longest subarray of 1s after deleting one element.
+Find the maximum number of vowels in a substring of given length.
+Count occurrences of anagrams in a string.
+Longest repeating character replacement.
+Minimum number of flips to make binary string alternating.
+Advanced Problems (Combination of Array, Binary Search, DP, and Others):
+Jump Game II (minimum number of jumps to reach the end).
+Best time to buy and sell stock (multiple times).
+Maximum product subarray.
+Find the kth largest element in an unsorted array.
+Longest mountain in an array.
+Maximum sum increasing subsequence.
+Count smaller numbers after self (using Fenwick Tree or Binary Indexed Tree).
+Find the peak element in an array.
+Maximum sum of two non-overlapping subarrays.
+Candy problem (distribute candies to minimize unfairness).
