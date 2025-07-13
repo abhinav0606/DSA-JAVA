@@ -1,5 +1,6 @@
 package Striver.Revision;
 
+import Striver.BinaryTree.FAQs;
 import Trees.tree;
 import com.sun.source.tree.Tree;
 
@@ -353,9 +354,88 @@ public class BinaryTree {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
-        while (root != null) {
-            result.add(root.data);
-            root = root.right;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for(int i=0;i<size;i++) {
+                TreeNode polledNode = q.poll();
+                level.add(polledNode.data);
+                if (polledNode.left != null) q.add(polledNode.left);
+                if (polledNode.right != null) q.add(polledNode.right);
+            }
+            result.add(level.get(size-1));
+        }
+        return result;
+    }
+
+    public List<List<Integer>> allRootToLeaf(TreeNode root) {
+        // We can use DFS here to go path by path
+        List<List<Integer>> allPath = new ArrayList<>();
+        List<Integer> currentPath = new ArrayList<>();
+        dfs(root,currentPath,allPath);
+        return allPath;
+    }
+    private void dfs(TreeNode node, List<Integer> currentPath, List<List<Integer>> allPath) {
+        if (node == null) return;
+        currentPath.add(node.data);
+        if (node.left == null && node.right == null) {
+            allPath.add(currentPath);
+        } else {
+            dfs(node.left,currentPath,allPath);
+            dfs(node.right,currentPath,allPath);
+        }
+        currentPath.remove(currentPath.size()-1);
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        if (left == null) return right;
+        else if (right == null) return left;
+        else return root;
+    }
+
+    static class Pair<  K , V  > {
+        private K key;
+        private V value;
+
+        public Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return value;
+        }
+    }
+
+    public static int widthOfBinaryTree(TreeNode root) {
+        // We will go level wise by BFS
+        if (root == null) return 0;
+        int result = 0;
+        Queue<Pair<TreeNode,Integer>> queue = new LinkedList<>();
+        queue.add(new Pair<>(root,0));
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            int firstIndex = 0;
+            int lastIndex = 0;
+            for (int i=0;i<size;i++) {
+                Pair<TreeNode,Integer> currentValueMap = queue.poll();
+                int currentValue = currentValueMap.getValue();
+                if (i == 0) firstIndex = currentValue;
+                if (i == size-1) lastIndex = currentValue;
+                TreeNode node = currentValueMap.getKey();
+                if (node.left != null) queue.add(new Pair<>(node.left,2*currentValue + 1));
+                if (node.right != null) queue.add(new Pair<>(node.right,2*currentValue + 2));
+            }
+            result = Math.max(result, lastIndex-firstIndex+1);
         }
         return result;
     }
